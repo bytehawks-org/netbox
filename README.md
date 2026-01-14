@@ -30,39 +30,49 @@ This custom image includes the following plugins:
 
 ## Quick Start
 
+**For detailed step-by-step instructions, see [QUICKSTART.md](QUICKSTART.md)**
+
+### Automated Setup (Recommended)
+
+```bash
+git clone https://github.com/bytehawks-org/netbox.git
+cd netbox
+./setup.sh        # Configure environment with secure passwords
+make setup        # Build and start NetBox
+make superuser    # Create admin account
+```
+
+Then access NetBox at http://localhost:8000
+
+### Manual Setup
+
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/bytehawks-org/netbox.git
    cd netbox
    ```
 
-2. **Build the custom image:**
+2. **Configure environment variables:**
    ```bash
-   docker build -t netbox-custom:4.4 .
+   cp env/*.env.example env/
+   # Edit env/*.env files and replace CHANGE_ME_* placeholders
    ```
 
-3. **Start the services:**
+3. **Build and start:**
    ```bash
-   docker compose up -d
+   make setup
+   # Or: docker build -t netbox-custom:4.4 . && docker compose up -d
    ```
 
-4. **Access NetBox:**
+4. **Initialize:**
+   ```bash
+   make migrate
+   make collectstatic
+   make superuser
+   ```
+
+5. **Access NetBox:**
    Open your browser and navigate to http://localhost:8000
-
-5. **Create a superuser (first time only):**
-   ```bash
-   docker compose exec netbox /opt/netbox/netbox/manage.py createsuperuser
-   ```
-
-6. **Run database migrations for plugins:**
-   ```bash
-   docker compose exec netbox /opt/netbox/netbox/manage.py migrate
-   ```
-
-7. **Collect static files:**
-   ```bash
-   docker compose exec netbox /opt/netbox/netbox/manage.py collectstatic --no-input
-   ```
 
 ## Configuration
 
