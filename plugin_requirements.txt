@@ -1,0 +1,44 @@
+# NetBox Plugin Requirements
+# For NetBox 4.4
+
+# Validity plugin - Configuration compliance and device state validation
+netbox-validity==3.4.0
+
+# Inventory plugin - Hardware inventory management
+netbox-inventory==2.4.1
+
+# SAML2 authentication plugin - SSO integration
+netbox-plugin-auth-saml2==3.0
+
+# Lifecycle plugin - Hardware EOL/EOS, licenses, and contracts
+netbox-lifecycle==1.1.3
+
+# Lists plugin - IP & prefix list generation
+netbox-lists==4.0.3
+
+# Documents plugin - Document management for circuits and devices
+netbox-documents==0.7.4
+
+# Data Flows plugin - Data flow documentation
+netbox-data-flows==1.4.1
+
+# Attachments plugin - File attachments for any model
+netbox-attachments==9.0.1
+
+# QR Code plugin - QR code generation for racks, devices, cables
+netbox-qrcode==0.0.19
+
+# Floorplan plugin - Floorplan modeling (using correct PyPI package name)
+netbox-floorplan-plugin==0.8.0
+
+# BGP plugin - BGP configuration management
+netbox-bgp==0.17
+
+# Topology Views plugin - Graphical topology maps
+netbox-topology-views==4.4
+
+# Slurp'it plugin - Automatic network discovery (using correct PyPI package name)
+slurpit_netbox==1.2.7
+
+# Nbservice plugin - ITSM service mapping (using correct PyPI package name)
+nb-service==4.2.0
